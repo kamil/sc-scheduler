@@ -1,0 +1,55 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SC-SCHEDULER</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="scheduler" style="padding-top:50px;"></div>
+    <div class="row">
+      <div class="col-xs-12">
+      </div>
+      <div class="col-xs-12">
+        <div class="page-header clearfix">
+          <h3>Schedule List</h3>
+          <button class="btn btn-xs btn-primary" id="run">RUN</button>
+        </div>
+        <table class="table table-striped">
+          <tr>
+            <th style="width:50px;">When</th>
+            <th>Task</th>
+            <td style="width:50px;"></td>
+          </tr>
+          {{#each tasks}}
+            {{> task}}
+          {{/each}}
+        </table>
+
+        <form class="new-task form-inline">
+          <div class="form-group">
+            <input class="form-control"  type="text" name="text" placeholder="Task" style="width:400px;" />
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <input class="form-control"  type="number" name="when" placeholder="Time" />
+              <div class="input-group-addon">sek.</div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-default" >Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+<template name="task">
+  <tr>
+    <td>{{when}}</td>
+    <td>{{text}}</td>
+    <td>
+      <a class="delete" href="#">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </a>
+    </td>
+  </tr>
+</template>
